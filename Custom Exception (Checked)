@@ -1,0 +1,29 @@
+public class Application {
+
+	static void validateName(String name) throws EmptyNameException{
+		if(name.equals("")){
+			throw new EmptyNameException("Name is Empty!");
+		}else{
+			System.out.println("Welcome "+name);
+		}
+	}
+	
+	public static void main(String[] args) {
+		try{
+		validateName("Steve Jobs");
+		validateName("");
+		
+		}catch(EmptyNameException e){
+			System.out.println("Exception Occured: "+e);
+		}
+		}
+	
+}
+
+//Custom Exception
+class EmptyNameException extends Exception{
+	
+	public EmptyNameException(String message) {
+		super(message);
+	}
+}
